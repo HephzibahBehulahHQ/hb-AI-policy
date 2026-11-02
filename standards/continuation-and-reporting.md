@@ -112,3 +112,6 @@ STATUS
 - Next: one concrete action
 
 Detail is appropriate only when the requester asks for it or a blocker needs enough context to resolve. Reviewers should reject PR descriptions that restate full specifications, include generated/reformatted material without purpose, or claim completion without evidence.
+
+
+When client-provided text is already clear plain text, treat it as the source: do not re-convert, reformat or re-summarize it unless asked. When a large source needs processing, use the smallest relevant clean Markdown excerpt rather than repeating raw material. Do not paste entire files unless requested. Routine PR descriptions should identify changed files and evidence, not reproduce the specification.
