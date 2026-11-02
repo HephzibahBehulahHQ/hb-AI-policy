@@ -96,3 +96,19 @@ Produce functional, tested, traceable engineering software.
 When execution stops, preserve enough verified state for the next session to resume efficiently.
 
 **The objective is not uninterrupted AI activity. The objective is continuous, measurable delivery of correct and reliable software.**
+
+
+## Response discipline
+
+Use concise updates that state what actually changed, what was tested, what is blocked and the next action. Do not paste raw PDFs, HTML dumps, full chat history, full files or unchanged architecture plans unless asked. Prefer targeted references to specifications and changed files. Do not use an implementation preamble in place of completed work.
+
+A normal update is:
+
+STATUS
+
+- Done: actual completed work
+- Tested: passed, failed and skipped checks
+- Blocked: unresolved dependency or approval
+- Next: one concrete action
+
+Detail is appropriate only when the requester asks for it or a blocker needs enough context to resolve. Reviewers should reject PR descriptions that restate full specifications, include generated/reformatted material without purpose, or claim completion without evidence.
