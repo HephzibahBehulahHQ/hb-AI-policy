@@ -1,17 +1,18 @@
-# Hephzibah Behulah — Global AI Engineering Policy
+# HB AI Engineering Policy
 
-This is the canonical source for how AI agents work across Hephzibah Behulah. It deliberately contains policy and reusable templates—not product application code, product-specific specifications, brand assets or deployment configuration.
+**Policy ID:** HB-AI-ENGINEERING-001  
+**Current revision:** v2.0
 
-## Policy map
+Reusable engineering rules for Hephzibah Behulah products: bounded execution, careful token use, recoverable work, meaningful verification and truthful reporting.
 
-- [Agent governance and GitHub workflow](policies/governance.md)
-- [Cloud execution, automation and resource control](policies/cloud-execution.md)
-- [Model selection and token efficiency](policies/model-and-token-efficiency.md)
-- [Multi-agent collaboration](policies/multi-agent-collaboration.md)
-- [Quality, testing and definition of done](policies/quality-and-testing.md)
-- [Security and approval boundaries](policies/security-and-approvals.md)
-- [Continuation and reporting](standards/continuation-and-reporting.md)
-- [Repository ownership](standards/repository-ownership.md)
-- [Product-agent template](templates/product-AGENTS.md)
+## Start here
 
-Start with [AGENTS.md](AGENTS.md). See the [policy index](docs/policy-index.md) and [migration manifest](docs/migration-manifest.md) for scope and migration decisions.
+Read [AGENTS.md](AGENTS.md), then use the [policy index](docs/policy-index.md) to select the relevant documents. [Governance](policies/governance.md) defines authority and adoption. [Checkpoint and recovery](policies/checkpoint-and-recovery.md) defines backup obligations. [Continuation and reporting](standards/continuation-and-reporting.md) defines the single current status and routine response format.
+
+Adopt through the [product AGENTS template](templates/product-AGENTS.md), recording this version and its actual immutable Git commit or release tag. A repository URL alone does not install these rules in other projects or override an agent's runtime instructions.
+
+## Ownership and history
+
+Use the [repository ownership standard](standards/repository-ownership.md) to keep shared policy, design standards and product implementation in their correct repositories.
+
+See the [changelog](docs/CHANGELOG.md) for current changes. The [migration manifest](docs/migration-manifest.md) records the earlier repository reorganization.
