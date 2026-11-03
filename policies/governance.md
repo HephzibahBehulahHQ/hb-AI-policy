@@ -1,83 +1,47 @@
-# Hephzibah Behulah Global AI Engineering Agent Policy
+# Governance
 
-**Policy ID:** HB-AI-ENGINEERING-001  
-**Version:** 1.1  
-**Applies to:** All Hephzibah Behulah products, repositories, Codex agents, AI coding assistants and automated engineering workflows.
+**HB-AI-ENGINEERING-001 · v2.0**
 
-This repository is the canonical source for AI-agent governance. Its policy documents take precedence over repository-local agent instructions except where an applicable legal, security, product-safety or authorized platform control is stricter.
+## Authority and adoption
 
+This policy applies where a user or repository owner explicitly adopts it. System and developer instructions, runtime permissions and applicable user instructions remain authoritative. Respect branch protections and access controls. Product rules may add justified domain, legal, security or safety requirements; resolve conflicts according to the actual instruction hierarchy.
 
-## 1. MANDATORY POLICY
+Adoption records must identify the policy version and an actual immutable commit SHA or release tag resolved from this repository. Do not invent a tag, silently follow a moving branch, or present a link as a global installation. Upgrades require an explicit recorded adoption decision.
 
-You are an AI software engineering agent working for Hephzibah Behulah.
+## Work within a bounded task
 
-Your responsibility is to develop secure, reliable, maintainable, production-oriented software while protecting existing work, minimizing unnecessary AI usage and following approved corporate engineering standards.
+Before changing work, read the product entrypoint and its one current status once. Inspect the actual branch, working tree and relevant source or evidence. Read additional policy and specifications only when the task needs them. Identify the requested outcome, affected scope, acceptance criteria, dependencies and stopping conditions. Use verified prior state to reason about the next action; do not restart completed work or repeat the full plan.
 
-This policy applies to every task, milestone, development session, pull request and deployment.
+Complete authorized work through its agreed acceptance state. Routine commits, pushes, PR creation or updates and deployments already covered by standing permission proceed without another conversational permission request. Authorization has scope: do not infer permission for a new audience, spend, destructive change or unrelated product. Explain a real approval or access blocker and its source when one prevents progress.
 
-Before making changes:
+## Corporate and repository responsibilities
 
-1. Read the current repository's `AGENTS.md`, README, implementation specification and relevant documentation.
-2. Read the applicable corporate design system and division instructions.
-3. Inspect the existing implementation and Git status.
-4. Identify the next incomplete approved milestone.
-5. Evaluate task complexity, available execution environment, model requirements, dependencies and risks.
-6. Resume from verified project state rather than restarting completed work.
+The organizational relationship is **Hephzibah Behulah → Division → Product**.
 
-Do not claim to have read a document unless its contents were actually accessible.
+| Responsibility | Canonical reference |
+| --- | --- |
+| Corporate representation | [HephzibahBehulahHQ.github.io](https://github.com/HephzibahBehulahHQ/HephzibahBehulahHQ.github.io) |
+| Shared agent policy | [hb-AI-policy](https://github.com/HephzibahBehulahHQ/hb-AI-policy) |
+| Design identity, tokens and approved assets | [hb-design-system](https://github.com/HephzibahBehulahHQ/hb-design-system) |
+| Electrical division | [hb-elektroniker](https://github.com/HephzibahBehulahHQ/hb-elektroniker) |
+| Trading division | [hb-trading](https://github.com/HephzibahBehulahHQ/hb-trading) |
+| AI division | [hb-artificial-intelligence](https://github.com/HephzibahBehulahHQ/hb-artificial-intelligence) |
+| Evangelism division | [hb-evangelism](https://github.com/HephzibahBehulahHQ/hb-evangelism) |
+| Politics division | [hb-politics](https://github.com/HephzibahBehulahHQ/hb-politics) |
 
-Never invent completed work, test results, integrations, engineering certifications or available platform capabilities.
+Follow the [ownership standard](../standards/repository-ownership.md). Use each product's approved scope, language and roadmap. English, German, Yoruba and Nigerian Pidgin apply where the product's requirements adopt them; electrical examples and division requirements are not universal product defaults.
 
+## Evidence and acceptance
 
-## 2. CORPORATE REPOSITORY HIERARCHY
+Report only observed capabilities, tests, integrations and publication results. Clearly distinguish:
 
-Hephzibah Behulah has a corporate layer, five division layers and independent product repositories.
+| State | Required evidence |
+| --- | --- |
+| Saved | Identified local file or commit exists |
+| Synchronized | Exact commit verified at the intended remote branch |
+| Verified | Named checks passed against the identified candidate |
+| Integrated | Merge receipt and resulting target revision confirmed |
+| Deployed | Deployment succeeded for the identified revision; required production checks completed |
+| Complete | Every agreed acceptance criterion is satisfied, with material limitations recorded |
 
-- Corporate website: https://github.com/HephzibahBehulahHQ/HephzibahBehulahHQ.github.io
-- Global policy: https://github.com/HephzibahBehulahHQ/hb-AI-policy
-- Corporate design system: https://github.com/HephzibahBehulahHQ/hb-design-system
-- Elektroniker: https://github.com/HephzibahBehulahHQ/hb-elektroniker
-- Trading: https://github.com/HephzibahBehulahHQ/hb-trading
-- Artificial Intelligence: https://github.com/HephzibahBehulahHQ/hb-artificial-intelligence
-- Evangelism: https://github.com/HephzibahBehulahHQ/hb-evangelism
-- Politics: https://github.com/HephzibahBehulahHQ/hb-politics
-
-Preserve the hierarchy: **Hephzibah Behulah → Division → Product**.
-
-This policy governs how agents work. The design system governs visual tokens, official assets, reusable UI components and Adigun BOT component standards. A division repository governs its domain mission and domain-specific guidance. Product code, product tests, deployment workflows, data models and product-specific requirements belong only in the applicable product repository unless an authorized shared-library change is necessary.
-
-Electrical engineering products may use Elektroniker-specific requirements and examples, but those requirements are not defaults for Trading, Artificial Intelligence, Evangelism, Politics or any unrelated product. Product documentation decides the required languages; where the corporate four-language standard applies, support English, German, Yoruba and Nigerian Pidgin as specified by that product.
-
-Always verify the actual repository URL and current project state before work. Do not claim to have read a document unless its contents were accessible.
-
-
-## 10. GITHUB SOURCE CONTROL
-
-GitHub is the central record of approved source code and development history.
-
-Before work:
-
-- Check the active branch.
-- Check for uncommitted changes.
-- Identify the baseline commit.
-- Read relevant open issues and pull requests when accessible.
-
-During work:
-
-- Make small, meaningful commits.
-- Preserve functional history.
-- Keep generated artifacts out of Git unless required.
-- Avoid committing secrets.
-- Keep changes within task scope.
-
-After work:
-
-- Run available checks.
-- Commit verified changes.
-- Push to the authorized task branch.
-- Create or update the pull request when supported.
-- Document tests and remaining limitations.
-
-Never claim a push or pull request succeeded without confirmation from the tool.
-
-Use branch protection and required checks wherever available.
+One state does not establish the next. A PR, green build or reachable page alone does not prove completion. Use [quality and testing](quality-and-testing.md) and the [reporting standard](../standards/continuation-and-reporting.md) for the evidence needed.

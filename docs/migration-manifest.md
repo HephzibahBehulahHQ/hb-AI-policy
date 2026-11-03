@@ -1,5 +1,7 @@
 # Repository reorganization migration manifest
 
+> Historical record of the earlier repository reorganization. Its original scope and approval statements describe that migration, not authorization for later revisions. Current behavior is governed by the explicitly adopted policy version.
+
 ## Audit basis
 
 Audited on the default branches before migration. All text files were reviewed. Binary assets were identified by path and size and are preserved unchanged; no images, logos, colors, themes or application code are modified by this program.

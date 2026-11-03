@@ -1,90 +1,43 @@
-# Hephzibah Behulah Global AI Engineering Agent Policy
+# Quality and testing
 
-**Policy ID:** HB-AI-ENGINEERING-001  
-**Version:** 1.1  
-**Applies to:** All Hephzibah Behulah products, repositories, Codex agents, AI coding assistants and automated engineering workflows.
+**HB-AI-ENGINEERING-001 · v2.0**
 
-This repository is the canonical source for AI-agent governance. Its policy documents take precedence over repository-local agent instructions except where an applicable legal, security, product-safety or authorized platform control is stricter.
+## Acceptance before expansion
 
+Work in bounded milestones with an objective, affected scope, dependencies, acceptance criteria and risks. Establish a useful end-to-end user flow early, then extend it in the product's approved order. Do not confuse an initial partial result with completion of the full task.
 
-## 8. MILESTONE-BASED EXECUTION
+A functional feature performs its promised behavior using the intended inputs, outputs and persistence. Dummy content, placeholders, hardcoded success messages and fake integrations must never be represented as finished functionality. Label deliberate fixtures, prototypes and simulations clearly. Record missing external access as a limitation.
 
-Every feature must be broken into bounded, testable milestones.
+## Verification tiers
 
-A milestone should contain:
+| Tier | Purpose and evidence |
+| --- | --- |
+| Checkpoint | Cheap inspection of staged scope and secret risk, plus quick syntax or formatting checks where useful. Record known failures. Permit clearly marked WIP backup without waiting for full CI. |
+| Feature | Focused tests of changed behavior and affected interfaces; relevant type, lint, unit, integration or build checks. Test meaningful failure cases and regressions. |
+| Merge / release | All required product and branch-protection gates on the exact merge or release candidate SHA, plus acceptance checks appropriate to the release. |
 
-- Objective.
-- Scope.
-- Dependencies.
-- Acceptance criteria.
-- Implementation tasks.
-- Tests.
-- Known risks.
-- Definition of done.
+Checkpoint backup and release approval are separate decisions. A failing test does not justify losing work, and a successful backup does not authorize integration or release.
 
-Do not begin with an uncontrolled request to build the entire application in one uninterrupted operation.
+After a candidate changes, rerun affected checks and every gate required for its new SHA. If a merge queue or merge operation creates another revision, verify the required checks against the actual integrated or release candidate. Deploy the verified artifact or revision and record the production receipt.
 
-Complete the smallest meaningful vertical slice first.
+Reuse valid results for the same revision where the gate allows it. Avoid duplicate CI triggers; cancel obsolete owned runs when cancellation is safe and does not cancel another contributor's work. Do not weaken required gates to save time.
 
-For engineering applications, prioritize:
+## Test what users experience
 
-1. Working project foundation.
-2. Functional workspace and navigation.
-3. Canonical engineering data model.
-4. Real editor interactions.
-5. Connectivity and validation.
-6. Calculations.
-7. 3D integration.
-8. Exports and persistence.
-9. AI-assisted workflows.
-10. Expanded verified project libraries.
+Choose checks according to risk; avoid tests that merely restate trivial implementation details. For applications, exercise actual user flows, persistence, errors and recovery. Verify real integrations when access exists and distinguish mock coverage from live coverage.
 
-Use the product-specific implementation specification as the authoritative source for exact feature scope and milestone order.
+For UI changes, inspect functional behavior, keyboard and focus use, labels and accessible names, readable contrast, responsive layouts and visual quality at relevant screen sizes. Automated checks complement direct inspection. A successful build or screenshot alone is insufficient.
 
+After two unchanged failures, diagnose the cause and change the repair or test strategy before retrying. Mark unrun checks **NOT TESTED**, explain why and identify the next verification step.
 
-## 9. TESTING AND ENGINEERING VALIDATION
+## Engineering references and rights
 
-No feature is complete simply because its interface renders.
+For electrical, numerical or other consequential domain features, record the applicable standard edition, manufacturer source, assumptions, units, operating conditions and reference calculations. Verify specifications rather than inventing ratings, tolerances, formulas or safety claims.
 
-Every milestone must include applicable checks:
+Respect copyright, licenses and access rights for standards, manufacturer material, software and assets. Cite or link authoritative references; do not copy restricted source beyond authorized use.
 
-- Type checking.
-- Linting.
-- Unit tests.
-- Integration tests.
-- Build verification.
-- End-to-end interaction tests.
-- Security checks.
-- Accessibility checks.
-- Regression tests.
-- Engineering reference-case validation.
+Distinguish demonstration, numerical/reference validation, standards-informed analysis, hardware-tested behavior and independently certified compliance. Evidence at one level does not prove another. Claim hardware testing or certification only with actual records.
 
-For electrical engineering software, distinguish clearly between:
+## Completion evidence
 
-- Demonstration examples.
-- Numerically verified calculations.
-- Standards-informed engineering workflows.
-- Hardware-tested behavior.
-- Certified or independently validated functionality.
-
-Do not invent manufacturer specifications, component ratings, test evidence or compliance claims.
-
-If a test cannot be performed, mark it as **NOT TESTED**, explain why and document what remains necessary.
-
-Do not use mock outputs as proof that real calculations or integrations work.
-
-
-## 15. DEFINITION OF DONE
-
-A task is complete only when:
-
-1. The requested behavior is implemented.
-2. Relevant tests have been executed.
-3. Results are accurately reported.
-4. No known critical regression has been introduced.
-5. Documentation is updated where necessary.
-6. Changes are committed to the correct branch.
-7. The work is available for review through the authorized workflow.
-8. Remaining limitations are documented.
-
-A successful build alone is not sufficient proof of functional completion.
+A milestone is complete when the agreed behavior works, relevant checks pass, required reviews or integration steps are confirmed, documentation reflects the change and remaining limitations are explicit. Use the [acceptance states](governance.md#evidence-and-acceptance); report the full task's remaining effort honestly.

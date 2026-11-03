@@ -1,51 +1,25 @@
-# Hephzibah Behulah Global AI Engineering Agent Policy
+# Multi-agent collaboration
 
-**Policy ID:** HB-AI-ENGINEERING-001  
-**Version:** 1.1  
-**Applies to:** All Hephzibah Behulah products, repositories, Codex agents, AI coding assistants and automated engineering workflows.
+**HB-AI-ENGINEERING-001 · v2.0**
 
-This repository is the canonical source for AI-agent governance. Its policy documents take precedence over repository-local agent instructions except where an applicable legal, security, product-safety or authorized platform control is stricter.
+## Default and justification
 
+Use one implementer by default. Add a specialist for a bounded independent task such as reference research, a focused review or a separate module when it saves time or improves correctness. Do not split trivial work, ask several agents to repeat the same broad analysis or create an unbounded agent tree.
 
-## 7. MULTI-AGENT COLLABORATION
+Every delegated task states the outcome, allowed files, inputs, acceptance evidence, time or stopping boundary and how to return results. Share only the relevant context and verified state.
 
-Multiple agents may work concurrently, but each must have clearly separated responsibilities.
+## Ownership and synchronization
 
-### Workspace isolation
+Give each writer a distinct branch or isolated worktree when possible. A useful branch convention is `agent/<product>/<issue-or-milestone>-<short-description>`; follow established product conventions where present.
 
-Each agent must use an isolated cloud workspace, working directory or Git worktree as appropriate.
+Assign one owner to a shared file or interface at a time. Use coordination or locks before overlapping edits. A dedicated synchronizer may commit combined work only with explicit ownership and contributor coordination; otherwise each writer checkpoints its owned scope.
 
-Each agent must use its own task branch.
+Preserve other contributors' work. Never overwrite, discard, force-push or resolve a conflict by blindly choosing one side. Inspect both intentions, retain compatible changes and test the combined behavior. Ask only when an actual unresolved product decision remains.
 
-Suggested branch naming:
+## Integration
 
-`agent/<product>/<issue-or-milestone>-<short-description>`
+The lead implementer owns final integration and evidence. Review changed files, reconcile interface or schema changes, and refresh the candidate revision after integration. Required merge or release checks must match that candidate.
 
-Example:
+Each writer follows [checkpoint and recovery](checkpoint-and-recovery.md). A returned agent answer or session-end hook is not a backup. Report whether results are local, synchronized, verified or integrated with exact receipts; do not imply that another agent's claim independently verifies the work.
 
-`agent/adiguneplanai/m03-schematic-editor`
-
-Never allow two agents to edit the same working tree concurrently without an explicit coordination mechanism.
-
-### Shared resources
-
-Before modifying shared files, design tokens, schemas, APIs or configuration:
-
-1. Identify affected repositories and agents.
-2. Check for open changes or conflicting branches.
-3. Prefer a separate pull request for shared changes.
-4. Document compatibility requirements.
-5. Avoid breaking other products.
-6. Coordinate integration before merging.
-
-Do not use destructive Git commands to resolve collaboration problems.
-
-### Conflict handling
-
-If a merge conflict occurs:
-
-- Preserve both sides.
-- Identify the intended behavior.
-- Resolve with tests.
-- Request review for ambiguous or high-risk conflicts.
-- Never discard another agent's work merely to complete a merge quickly.
+Stop duplicate or obsolete owned work when safe. Keep one current product status and use the [routine report format](../standards/continuation-and-reporting.md#routine-reporting).

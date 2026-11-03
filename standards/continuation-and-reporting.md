@@ -1,117 +1,40 @@
-# Hephzibah Behulah Global AI Engineering Agent Policy
+# Continuation and reporting
 
-**Policy ID:** HB-AI-ENGINEERING-001  
-**Version:** 1.1  
-**Applies to:** All Hephzibah Behulah products, repositories, Codex agents, AI coding assistants and automated engineering workflows.
+**HB-AI-ENGINEERING-001 · v2.0**
 
-This repository is the canonical source for AI-agent governance. Its policy documents take precedence over repository-local agent instructions except where an applicable legal, security, product-safety or authorized platform control is stricter.
+## One current status
 
+Each product identifies one current status location, such as `PROJECT_STATUS.md` or an authorized durable task/PR record. Maintain a compact account of the objective, acceptance state, branch, local revision, last verified remote revision and time, relevant test/deployment receipts, known failures and next bounded action.
 
-## 11. CONTINUATION AND RECOVERY
+Keep historical decisions or reference documents only when useful; do not maintain several competing current plans, blocker lists or status summaries. Receipts must distinguish what exists locally, what was verified remotely, what passed and what was integrated or deployed.
 
-Each product repository should maintain:
+At continuation, read the current status once and inspect actual Git or runtime state. Prefer fresh verified evidence over stale status. Preserve completed work, resolve discrepancies, then reason about the next task. Refresh only affected evidence when it changes. Do not reload the entire history or repeat the plan.
 
-`docs/agent/PROJECT_STATUS.md`
+## Token discipline and project continuation
 
-`docs/agent/MILESTONES.md`
+Use targeted file reads and relevant excerpts. Do not dump raw PDFs, HTML or conversation histories. Convert unstructured material into clean Markdown only when needed; clean pasted text is used as-is unless the user requests a transformation.
 
-`docs/agent/DECISIONS.md`
+Do not rewrap or resummarize clean input, repeat specifications or reproduce completed explanations. Keep implementation preambles minimal and show changed files or relevant changed lines only. Complete requested deliverables remain available in their proper artifact or repository.
 
-`docs/agent/BLOCKERS.md`
+A new session is a continuation from verified prior state, not a reason to redo accepted work. Follow [checkpoint and recovery](../policies/checkpoint-and-recovery.md) before handoff or long operations.
 
-`docs/agent/NEXT_TASKS.md`
+## Routine reporting
 
-These files must contain concise operational information, not copies of the entire master specification.
+Routine progress and completion reports contain **only** this structure:
 
-### PROJECT_STATUS.md
-
-Record:
-
-- Current milestone.
-- Last verified commit.
-- Implemented features.
-- Test status.
-- Current branch.
-- Outstanding risks.
-- Next recommended task.
-
-### NEXT_TASKS.md
-
-Record a prioritized list of approved, independent and actionable tasks.
-
-### BLOCKERS.md
-
-Record dependencies requiring the owner's approval, credentials, local hardware or third-party access.
-
-### DECISIONS.md
-
-Record significant architectural choices and their reasons.
-
-### Resume protocol
-
-At the beginning of a new session:
-
-1. Read these progress files.
-2. Check repository and branch state.
-3. Verify recent commits and tests.
-4. Identify the next approved task.
-5. Continue without rebuilding completed features.
-
-If the status files disagree with the actual repository, trust verified repository evidence and correct the documentation.
-
-
-## 16. MANDATORY RESPONSE FORMAT
-
-Use concise progress reports.
-
+```text
 STATUS
+- Done: ...
+- Tested: ...
+- ESTIMATED FINISH TIME: ...
+- ETA: ...
+- Next: ...
+```
 
-- Done: Actual changes completed.
-- Tested: Checks run, including failures and skipped tests.
-- Model: Current model if verifiable; recommended reasoning level if relevant.
-- Environment: Cloud or local, only if verified.
-- Branch: Current working branch.
-- Blocked: Unresolved dependencies or approvals.
-- Next: One concrete next action.
+Put blockers, their source and the required resolution in Done, Tested or Next. Do not add a separate Blocked field, extra headings, plans or commentary. Give additional explanation only when the user requests detail.
 
-Do not repeat the full policy or master specification in routine updates.
+Done states the actual acceptance stage and changed scope. Tested names meaningful checks, the relevant revision and any **NOT TESTED** limitation. Next gives the next bounded action or confirms completion.
 
+ESTIMATED FINISH TIME covers the **entire requested task**, expressed in hours or minutes when supportable; otherwise say **unknown** and give the missing dependency in Next. Never use the estimate for an initial partial result as the full-task finish.
 
-## 17. FINAL DIRECTIVE
-
-Operate as a disciplined engineering agent.
-
-Prefer cloud execution where genuinely available.
-
-Continue approved work autonomously only within the capabilities and authorization of the execution platform.
-
-Use the appropriate reasoning effort without pretending to change models.
-
-Protect Git history and shared files.
-
-Minimize unnecessary token consumption.
-
-Produce functional, tested, traceable engineering software.
-
-When execution stops, preserve enough verified state for the next session to resume efficiently.
-
-**The objective is not uninterrupted AI activity. The objective is continuous, measurable delivery of correct and reliable software.**
-
-
-## Response discipline
-
-Use concise updates that state what actually changed, what was tested, what is blocked and the next action. Do not paste raw PDFs, HTML dumps, full chat history, full files or unchanged architecture plans unless asked. Prefer targeted references to specifications and changed files. Do not use an implementation preamble in place of completed work.
-
-A normal update is:
-
-STATUS
-
-- Done: actual completed work
-- Tested: passed, failed and skipped checks
-- Blocked: unresolved dependency or approval
-- Next: one concrete action
-
-Detail is appropriate only when the requester asks for it or a blocker needs enough context to resolve. Reviewers should reject PR descriptions that restate full specifications, include generated/reformatted material without purpose, or claim completion without evidence.
-
-
-When client-provided text is already clear plain text, treat it as the source: do not re-convert, reformat or re-summarize it unless asked. When a large source needs processing, use the smallest relevant clean Markdown excerpt rather than repeating raw material. Do not paste entire files unless requested. Routine PR descriptions should identify changed files and evidence, not reproduce the specification.
+ETA is a dated estimate in **Europe/Berlin**, including the local time and date when supportable; otherwise say **pending**. Account for daylight saving using the actual zone. Estimates are not guarantees. Do not invent an ETA, elapsed duration or successful completion to fill the format. When all work is complete, state zero remaining time and the verified completion time if known; otherwise keep ETA pending.

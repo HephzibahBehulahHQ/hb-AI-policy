@@ -1,5 +1,7 @@
 # Repository ownership standard
 
+**HB-AI-ENGINEERING-001 · v2.0**
+
 | Area | Canonical owner | Consumer responsibility |
 | --- | --- | --- |
 | AI-agent governance, execution, testing, security and collaboration | `hb-AI-policy` | Link to the applicable policy; add only narrower local rules |

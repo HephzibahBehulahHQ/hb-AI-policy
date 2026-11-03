@@ -1,16 +1,11 @@
-# Global AI policy repository guidance
+# Repository instructions
 
-This repository owns reusable AI-agent governance. Read `README.md`, the applicable policy documents and `standards/repository-ownership.md` before changing it.
+Policy: **HB-AI-ENGINEERING-001 · v2.0**
 
-- Keep product code, tests, deployment files, credentials, brand assets and division-specific requirements in their responsible repositories.
-- Preserve policy intent while avoiding duplicated or contradictory rules.
-- Use focused documents and stable links; do not copy full global policy into consuming repositories.
-- Use dedicated branches and pull requests. Do not merge, deploy, alter secrets, incur costs or bypass safeguards without authorization.
-- Validate changed Markdown links and report only verified results.
+This repository owns reusable AI engineering policy. Start with [README](README.md), then read only the applicable entries in the [policy index](docs/policy-index.md). Follow the [repository ownership standard](standards/repository-ownership.md).
 
-STATUS
+Keep entrypoints short and stable links intact. Product code, checkpoint scripts, tests, deployments, data and assets belong in their product repositories. Preserve unrelated work and use scoped changes on a dedicated branch.
 
-- Done:
-- Tested:
-- Blocked:
-- Next:
+Apply the [token and model rules](policies/model-and-token-efficiency.md), [checkpoint and recovery rules](policies/checkpoint-and-recovery.md), and [continuation and reporting standard](standards/continuation-and-reporting.md). Standing authorization covers routine actions within its stated scope; do not repeatedly ask for it. Runtime permissions, branch protections and explicit user constraints still apply.
+
+For this documentation repository, validate routing links, consistent current versions, requirement coverage and the diff. Do not claim product recovery or application behavior was tested here.

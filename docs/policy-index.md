@@ -1,13 +1,22 @@
 # Policy index
 
-| Need | Authoritative document |
+**HB-AI-ENGINEERING-001 · v2.0**
+
+Read the entrypoint once, then select the document needed for the current task.
+
+| Need | Document |
 | --- | --- |
-| Core agent duties, repository hierarchy and source control | [governance](../policies/governance.md) |
-| Cloud, unattended work, scheduling and budgets | [cloud execution](../policies/cloud-execution.md) |
-| Reasoning selection and context economy | [model and token efficiency](../policies/model-and-token-efficiency.md) |
-| Concurrent work and conflicts | [multi-agent collaboration](../policies/multi-agent-collaboration.md) |
-| Milestones, testing and done criteria | [quality and testing](../policies/quality-and-testing.md) |
-| Security, access and approvals | [security and approvals](../policies/security-and-approvals.md) |
-| Session recovery and reporting | [continuation and reporting](../standards/continuation-and-reporting.md) |
-| Correct repository placement | [repository ownership](../standards/repository-ownership.md) |
-| Local product instructions | [product template](../templates/product-AGENTS.md) |
+| Authority, adoption, ownership and acceptance states | [Governance](../policies/governance.md) |
+| Targeted context, model controls and token discipline | [Model and token efficiency](../policies/model-and-token-efficiency.md) |
+| Local/cloud capability and bounded unattended work | [Cloud execution](../policies/cloud-execution.md) |
+| One implementer, narrow specialists and integration | [Multi-agent collaboration](../policies/multi-agent-collaboration.md) |
+| WIP cadence, safe synchronization and recovery drills | [Checkpoint and recovery](../policies/checkpoint-and-recovery.md) |
+| Verification tiers, real user flows and engineering evidence | [Quality and testing](../policies/quality-and-testing.md) |
+| Standing permission, secrets and access controls | [Security and approvals](../policies/security-and-approvals.md) |
+| Single current status and exact routine report format | [Continuation and reporting](../standards/continuation-and-reporting.md) |
+| Canonical repository responsibilities | [Repository ownership](../standards/repository-ownership.md) |
+| Explicit product adoption | [Product AGENTS template](../templates/product-AGENTS.md) |
+| Revision history | [Changelog](CHANGELOG.md) |
+| Earlier reorganization record | [Historical migration manifest](migration-manifest.md) |
+
+Policy documents specify requirements. Product repositories own their implementation, CI and deployment machinery.
